@@ -1,8 +1,8 @@
 // ---Dependencys
 import React from 'react';
 // ---Components
-import Titulo from 'Comp/Error404/Titulo';
-import Cuerpo from 'Comp/Error404/Cuerpo';
+import Titulo from 'Cont/Error404/components/Titulo';
+import Cuerpo from 'Cont/Error404/components/Cuerpo';
 
 // ------------------------------------------ COMPONENT-----------------------------------------
 function Error404Cont(): React.ReactElement {

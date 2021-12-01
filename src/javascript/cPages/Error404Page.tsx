@@ -1,19 +1,17 @@
 // ---Dependencys
-import React from 'react';
+import { ReactElement } from 'react';
 import { Helmet } from 'react-helmet';
 // ---Components
-import Error404Cont from 'Cont/Error404Cont';
+import Error404Cont from 'Cont/Error404/Error404Cont';
 
 // ------------------------------------------ COMPONENT-----------------------------------------
-function Error404Page(): React.ReactElement {
+export default function Error404Page (): ReactElement {
   return (
     <>
       <Helmet>
-        <title>Error 404</title>
+        <title>Forge Template | Error</title>
       </Helmet>
       <Error404Cont />
     </>
   );
 }
-
-export default Error404Page;

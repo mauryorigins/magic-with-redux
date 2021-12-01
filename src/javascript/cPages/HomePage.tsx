@@ -1,19 +1,17 @@
 // ---Dependencys
-import React from 'react';
+import { ReactElement } from 'react';
 import { Helmet } from 'react-helmet';
 // ---Components
-import HomeCont from 'Cont/HomeCont';
+import HomeCont from 'Cont/Home/HomeCont';
 
 // ------------------------------------------ COMPONENT-----------------------------------------
-function HomePage (): React.ReactElement {
+export default function HomePage (): ReactElement {
   return (
     <>
       <Helmet>
-        <title>Inicio</title>
+        <title>Forge Template | Inicio</title>
       </Helmet>
       <HomeCont />
     </>
   );
 }
-
-export default HomePage;
