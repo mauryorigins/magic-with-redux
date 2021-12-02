@@ -2,7 +2,7 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 // ---Containers
-import NavbarCont from 'Cont/NavbarCont';
+import NavbarCont from 'Cont/Navbar/NavbarCont';
 // ---Routes
 import Routes from './Routes';
 

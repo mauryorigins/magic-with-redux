@@ -10,8 +10,8 @@ import {
 } from 'Actions/appInfo';
 import { ReduxState } from 'Reducers';
 // ---Components
-import ClientMenu from 'Comp/NavBar/ClientMenu';
-import GlobalComponents from 'Comp/NavBar/GlobalComponents';
+import GlobalComponents from 'Cont/Navbar/components/GlobalComponents';
+import ClientMenu from 'Cont/Navbar/components/ClientMenu';
 // ---Others
 import logo from 'Images/logoStoreL.png';
 import isMovilDetector from 'Others/isMovilDetector';

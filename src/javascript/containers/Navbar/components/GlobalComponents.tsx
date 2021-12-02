@@ -4,7 +4,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { ReduxState } from 'Reducers';
 // ---Components
-import LoadingFullScreen from 'Comp/NavBar/LoadingFullScreen';
+import LoadingFullScreen from 'Cont/Navbar/components/LoadingFullScreen';
 
 // -----------------------------------------COMPONENT-----------------------
 
