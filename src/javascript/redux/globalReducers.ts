@@ -1,21 +1,17 @@
+
 // ---Dependencys
 import { combineReducers } from 'redux';
 // ---Types
-import {ReducerState as AppInfoState} from '@Reducers/appInfo/customTypes';
+import {ReducerState as AppInfoState} from '@Redux/appInfo/customTypes';
 // ---Reducers
-import showFlagReducer from '@Reducers/showFlag';
-import appInfoReducer from '@Reducers/appInfo';
+import appInfoReducer from '@Redux/appInfo/reducer';
 // ----------------------------------------ALL REDUX STATE TYPE-----------------------------------
 export interface ReduxState {
   appInfoReducer: AppInfoState;
-  showFlagReducer: {
-    showImg: boolean
-  };
 }
 
 // -----------------------------------------ALL REDUX REDUCERS----------------------------------
 const rootReducer = combineReducers({
-  showFlagReducer,
   appInfoReducer
 });
 

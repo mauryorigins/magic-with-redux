@@ -105,6 +105,8 @@ module.exports = {
     ],
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 0,
+    'no-inner-declarations': 'off',
+    'react/destructuring-assignment': 'off',
 
     // Typescript
     '@typescript-eslint/no-use-before-define': ["error", { "functions": false, "classes": true, "variables": true }],

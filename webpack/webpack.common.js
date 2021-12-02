@@ -8,17 +8,14 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts','.js', '.jsx', '.json'],
     alias: {
-      Comp: path.resolve(__dirname, '../src/javascript/components'),
       Cont: path.resolve(__dirname, '../src/javascript/containers'),
       Pages: path.resolve(__dirname, '../src/javascript/cPages'),
       CComps: path.resolve(__dirname, '../src/javascript/commonComps'),
       Utils: path.resolve(__dirname, '../src/javascript/cUtils'),
       Others: path.resolve(__dirname, '../src/javascript/others'),
-      Actions: path.resolve(__dirname, '../src/javascript/reduxActions'),
-      Reducers: path.resolve(__dirname, '../src/javascript/reduxReducers'),
-      '@Reducers': path.resolve(__dirname, '../src/javascript/reduxReducers'),
+      Redux: path.resolve(__dirname, '../src/javascript/redux'),
+      '@Redux': path.resolve(__dirname, '../src/javascript/redux'),
       '@Declarations': path.resolve(__dirname, '../src/javascript/declarations.d.ts'),
-      Types: path.resolve(__dirname, '../src/javascript/reduxTypes'),
       Images: path.resolve(__dirname, '../src/images')
     }
   },

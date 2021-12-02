@@ -4,12 +4,13 @@ import {
   CHANGE_RESPONSIVE,
   UPDATE_PATH,
   UPDATE_LOADING
-} from 'Types';
-import { Action, ReducerState } from '@Reducers/appInfo/customTypes';
+} from '@Redux/appInfo/types';
+import { Action, ReducerState, ResponsiveData } from '@Redux/appInfo/customTypes';
 
 // -------------------------------------------STATE------------------------------------
-const INITIAL_STATE = {
+const INITIAL_STATE: ReducerState  = {
   isMovil: false,
+  winSize: 'lg',
   isLoading: false,
   currentPath: '',
   currentParams: ''
@@ -22,7 +23,8 @@ export default (state = INITIAL_STATE, action: Action) : ReducerState => {
     case CHANGE_RESPONSIVE:
       return {
         ...state,
-        isMovil: <boolean>payload
+        isMovil: (payload as ResponsiveData).isMovil,
+        winSize: (payload as ResponsiveData).winSize
       };
 
     case UPDATE_PATH:

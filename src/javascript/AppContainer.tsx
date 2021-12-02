@@ -1,15 +1,16 @@
 // ---Dependencys
-import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { ReactElement } from 'react';
+import { BrowserRouter} from 'react-router-dom';
 // ---Containers
 import NavbarCont from 'Cont/Navbar/NavbarCont';
 // ---Routes
 import Routes from './Routes';
 
-function AppContainer() : React.ReactElement {
+function AppContainer() : ReactElement {
+  
   return (
     <BrowserRouter>
-      <NavbarCont />
+      
       <Routes />
     </BrowserRouter>
   );

@@ -1,36 +1,37 @@
+/* eslint-disable import/order */
+// --- Styles
 // import '../css/index.css';
 import '../css/index.less';
 import React from 'react';
 import { render } from 'react-dom';
+// --- Main container
+import AppContainer from './AppContainer';
 
-// redux configuration
+// --- Redux configuration
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import reduxThunk from 'redux-thunk';
-
-// reducers
-import reducers from 'Reducers';
-
-// main container
-import AppContainer from './AppContainer';
-
-// More redux configuration
+// ---Reducers
+import globalReducersState from '@Redux/globalReducers';
+// Redux dev tools configuration
 let composeEnhancers = null
 if (process.env.NODE_ENV === 'development') {
   composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 } else {
   composeEnhancers = compose;
 }
-
-const store = createStore(
-  reducers, // todos los reducers
-  {}, // estado inicial
+// Redux create global storage 
+const reduxStorage = createStore(
+  globalReducersState,
+  {},
   composeEnhancers(applyMiddleware(reduxThunk))
 );
+
+// --------------------------------- React integration ---------------------------------
 const rootElement = document.getElementById('root');
 
 render(
-  <Provider store={store}>
+  <Provider store={reduxStorage}>
     <AppContainer />
   </Provider>,
   rootElement
