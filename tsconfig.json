@@ -33,6 +33,8 @@
       "CComps/*": ["./src/javascript/commonComps/*"],
       "Utils/*": ["./src/javascript/cUtils/*"],
       "Others/*": ["./src/javascript/others/*"],
+      "AppConfig/*": ["./src/javascript/appConfig/*"],
+      "Requests/*": ["./src/javascript/requests/*"],
       "Redux": ["./src/javascript/redux"],
       "@Redux/*": ["./src/javascript/redux/*"],
       "@Declarations": ["./src/javascript/declarations.d.ts"],

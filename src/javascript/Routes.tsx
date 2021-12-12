@@ -11,7 +11,7 @@ import {
 } from '@Redux/appInfo/actions';
 import { ResponsiveData } from '@Redux/appInfo/customTypes';
 // ---Others
-import isMovilDetector from 'Others/isMovilDetector';
+import isMovilDetector from 'AppConfig/isMovilDetector';
 // ---Pages
 import HomePage from 'Pages/HomePage';
 import Error404Page from 'Pages/Error404Page';

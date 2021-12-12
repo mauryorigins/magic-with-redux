@@ -13,6 +13,8 @@ module.exports = {
       CComps: path.resolve(__dirname, '../src/javascript/commonComps'),
       Utils: path.resolve(__dirname, '../src/javascript/cUtils'),
       Others: path.resolve(__dirname, '../src/javascript/others'),
+      AppConfig: path.resolve(__dirname, '../src/javascript/appConfig'),
+      Requests: path.resolve(__dirname, '../src/javascript/requests'),
       Redux: path.resolve(__dirname, '../src/javascript/redux'),
       '@Redux': path.resolve(__dirname, '../src/javascript/redux'),
       '@Declarations': path.resolve(__dirname, '../src/javascript/declarations.d.ts'),
