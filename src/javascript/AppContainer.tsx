@@ -1,6 +1,6 @@
 // ---Dependencys
 import { ReactElement } from 'react';
-import { BrowserRouter} from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 // ---Routes
 import Routes from './Routes';
 

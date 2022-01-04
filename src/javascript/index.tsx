@@ -14,13 +14,13 @@ import reduxThunk from 'redux-thunk';
 // ---Reducers
 import globalReducersState from '@Redux/globalReducers';
 // Redux dev tools configuration
-let composeEnhancers = null
+let composeEnhancers = null;
 if (process.env.NODE_ENV === 'development') {
   composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 } else {
   composeEnhancers = compose;
 }
-// Redux create global storage 
+// Redux create global storage
 const reduxStorage = createStore(
   globalReducersState,
   {},

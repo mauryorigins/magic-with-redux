@@ -1,7 +1,10 @@
+/* eslint-disable react/jsx-no-useless-fragment */
 /* eslint-disable react/jsx-fragments */
 // ---Dependencys
 import { ReactElement, Fragment, useEffect } from 'react';
-import { Route, Switch, withRouter, RouteComponentProps } from 'react-router-dom';
+import {
+  Route, Switch, withRouter, RouteComponentProps
+} from 'react-router-dom';
 // ---Redux
 import { useDispatch } from 'react-redux';
 import {
@@ -16,22 +19,24 @@ import isMovilDetector from 'AppConfig/isMovilDetector';
 import HomePage from 'Pages/HomePage';
 import Error404Page from 'Pages/Error404Page';
 
-function Routes(props: RouteComponentProps): ReactElement {
-  const { pathname, search: urlParams } = props.location;
-  const currentPath = pathname
+/** Render components as routes of the app, is the root of the entire app also,
+ * get usefull data as window size of the app, current route and retrive the data to redux  */
+function Routes({ location }: RouteComponentProps): ReactElement {
+  const { pathname, search: urlParams } = location;
+  const currentPath = pathname;
   const responsiveData = isMovilDetector();
   // Redux Actions
   const dispatch = useDispatch();
   const updateResponsiveData = (data: ResponsiveData) => dispatch(changeResponsiveFlag(data));
   const updateCurrentPath = () => dispatch(updatePath(currentPath));
-  const updateCurrentParams = () => dispatch(updateParams(urlParams));  
+  const updateCurrentParams = () => dispatch(updateParams(urlParams));
   useEffect(() => {
     updateResponsiveData(responsiveData);
   }, [responsiveData]);
 
-  useEffect(() => { updateCurrentPath() }, [currentPath]);
-  useEffect(() => { updateCurrentParams() }, [urlParams]);
-  return(
+  useEffect(() => { updateCurrentPath(); }, [currentPath]);
+  useEffect(() => { updateCurrentParams(); }, [urlParams]);
+  return (
     <Fragment>
       <Switch>
         <Route path="/">
@@ -42,7 +47,7 @@ function Routes(props: RouteComponentProps): ReactElement {
         </Route>
       </Switch>
     </Fragment>
-  )
+  );
 }
 
 export default withRouter(Routes);
