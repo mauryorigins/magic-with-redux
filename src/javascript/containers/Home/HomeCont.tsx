@@ -8,8 +8,6 @@ export default function HomeCont(): ReactElement {
   // --- Const Hooks and States
   // ---- Main Methods
   return (
-    <>
-      <Message />
-    </>
+    <Message />
   );
 }
