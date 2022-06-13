@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const { envs } = require('./envsControl');
 
 module.exports = {
   entry: {
@@ -66,6 +67,9 @@ module.exports = {
   plugins: [
     new webpack.ProvidePlugin({
       process: 'process',
+    }),
+    new webpack.DefinePlugin({
+      [`process.env.${envs.names.LESS_COLORS}`]: JSON.stringify(envs.values.common.LESS_COLORS),
     }),
   ],
   stats: 'errors-only',

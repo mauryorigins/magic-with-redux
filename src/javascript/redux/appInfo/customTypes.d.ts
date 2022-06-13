@@ -14,4 +14,5 @@ export interface ReducerState {
   isLoading: boolean;
   currentPath: string;
   currentParams: string;
+  lessColors?: { [key: string]: string };
 }

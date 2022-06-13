@@ -37,7 +37,27 @@
     "prettier/prettier": "error",
     // Style
     "object-curly-newline": "off",
+    "@typescript-eslint/naming-convention": [
+      "warn",
+      {
+        "selector": "interface",
+        "format": ["PascalCase"]
+      }
+    ],
+    "require-jsdoc": [
+      "warn",
+      {
+        "require": {
+          "FunctionDeclaration": true,
+          "MethodDefinition": false,
+          "ClassDeclaration": false,
+          "ArrowFunctionExpression": false,
+          "FunctionExpression": false
+        }
+      }
+    ],
     // Javascript
+    "global-require": "off",
     "no-plusplus": "off",
     "react/require-default-props": "off",
     "no-unused-vars": "off",
@@ -87,7 +107,7 @@
     ],
     "@typescript-eslint/no-unused-vars": [
       "warn",
-      { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }
+      { "vars": "all", "args": "after-used", "ignoreRestSiblings": false, "argsIgnorePattern": "_" }
     ]
   },
   "ignorePatterns": ["node_modules", "dist"]
