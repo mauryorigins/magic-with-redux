@@ -11,7 +11,7 @@ module.exports = {
     alias: {
       Cont: path.resolve(__dirname, '../src/javascript/containers'),
       Pages: path.resolve(__dirname, '../src/javascript/cPages'),
-      GlobalComp: path.resolve(__dirname, '../src/javascript/GlobalComp'),
+      GlobalProvider: path.resolve(__dirname, '../src/javascript/GlobalProvider'),
       CComps: path.resolve(__dirname, '../src/javascript/commonComps'),
       Utils: path.resolve(__dirname, '../src/javascript/cUtils'),
       Others: path.resolve(__dirname, '../src/javascript/others'),

@@ -6,7 +6,7 @@
       "Cont/*": ["./src/javascript/containers/*"],
       "Pages/*": ["./src/javascript/cPages/*"],
       "CComps/*": ["./src/javascript/commonComps/*"],
-      "GlobalComp/*": ["./src/javascript/GlobalComp/*"],
+      "GlobalProvider/*": ["./src/javascript/GlobalProvider/*"],
       "Utils/*": ["./src/javascript/cUtils/*"],
       "Others/*": ["./src/javascript/others/*"],
       "AppConfig/*": ["./src/javascript/appConfig/*"],
