@@ -1,25 +1,27 @@
-const path = require("path"); // modulo path que viene nativo de node
-const webpack = require("webpack");
-const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path',); // modulo path que viene nativo de node
+const webpack = require('webpack',);
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin',);
+const HtmlWebpackPlugin = require('html-webpack-plugin',);
+const { getEnv, envs, } = require('./envsControl',);
 
 module.exports = {
-  mode: "development",
-  devtool: "cheap-module-source-map",
+  mode: 'development',
+  devtool: 'cheap-module-source-map',
   devServer: {
     // new
     client: {
+      logging: 'info',
       overlay: true,
       progress: true,
       reconnect: true,
     },
     static: {
-      directory: path.resolve(__dirname, "../src"),
+      directory: path.resolve(__dirname, '../src',),
     },
-    port: 3000,
+    port: getEnv(envs.names.PORT,) || 3000,
     open: true,
-    liveReload: false,
-    allowedHosts: "all",
+    liveReload: true,
+    allowedHosts: 'all',
     historyApiFallback: true,
   },
   module: {
@@ -28,13 +30,13 @@ module.exports = {
         test: /\.less$/,
         use: [
           {
-            loader: "style-loader",
+            loader: 'style-loader',
           },
           {
-            loader: "css-loader",
+            loader: 'css-loader',
           },
           {
-            loader: "less-loader",
+            loader: 'less-loader',
             options: {
               lessOptions: {
                 javascriptEnabled: true,
@@ -45,17 +47,18 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader', ],
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "../src/index.html"),
-    }),
+      template: path.resolve(__dirname, '../src/index.html',),
+    },),
     new ReactRefreshWebpackPlugin(),
     new webpack.DefinePlugin({
-      "process.env.name": JSON.stringify("Vishwas"),
-    }),
+      [`process.env.${envs.names.APP_NAME}`]: JSON.stringify(envs.values.dev.APP_NAME,),
+      [`process.env.${envs.names.DEBUG}`]: JSON.stringify(envs.values.dev.DEBUG,),
+    },),
   ],
 };

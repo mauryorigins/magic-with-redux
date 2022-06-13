@@ -47,6 +47,7 @@
     "import/no-named-as-default": "off",
     "import/no-named-as-default-member": "off",
     "comma-dangle": ["error", "always"],
+    "array-bracket-spacing": "off",
     "react/jsx-props-no-spreading": "off",
     "react/react-in-jsx-scope": "off",
     // Typescript
