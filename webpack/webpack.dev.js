@@ -1,8 +1,8 @@
-const path = require('path',); // modulo path que viene nativo de node
-const webpack = require('webpack',);
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin',);
-const HtmlWebpackPlugin = require('html-webpack-plugin',);
-const { getEnv, envs, } = require('./envsControl',);
+const path = require('path'); // modulo path que viene nativo de node
+const webpack = require('webpack');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { getEnv, envs } = require('./envsControl');
 
 module.exports = {
   mode: 'development',
@@ -16,9 +16,9 @@ module.exports = {
       reconnect: true,
     },
     static: {
-      directory: path.resolve(__dirname, '../src',),
+      directory: path.resolve(__dirname, '../src'),
     },
-    port: getEnv(envs.names.PORT,) || 3000,
+    port: getEnv(envs.names.PORT) || 3000,
     open: true,
     liveReload: true,
     allowedHosts: 'all',
@@ -47,18 +47,18 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader', ],
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '../src/index.html',),
-    },),
+      template: path.resolve(__dirname, '../src/index.html'),
+    }),
     new ReactRefreshWebpackPlugin(),
     new webpack.DefinePlugin({
-      [`process.env.${envs.names.APP_NAME}`]: JSON.stringify(envs.values.dev.APP_NAME,),
-      [`process.env.${envs.names.DEBUG}`]: JSON.stringify(envs.values.dev.DEBUG,),
-    },),
+      [`process.env.${envs.names.APP_NAME}`]: JSON.stringify(envs.values.dev.APP_NAME),
+      [`process.env.${envs.names.DEBUG}`]: JSON.stringify(envs.values.dev.DEBUG),
+    }),
   ],
 };

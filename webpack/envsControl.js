@@ -3,9 +3,9 @@
  * @param {string} envName
  * @returns {string} string - Value
  */
-exports.getEnv = function getEnv(envName,) {
+exports.getEnv = function getEnv(envName) {
   try {
-    return JSON.stringify(process.env[envName],);
+    return JSON.stringify(process.env[envName]);
   } catch (error) {
     return undefined;
   }

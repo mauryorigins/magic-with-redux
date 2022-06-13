@@ -1,13 +1,13 @@
 // --- Styles
 import '../css/index.less';
 import React from 'react';
-import { createRoot, } from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 // --- Main container
 import AppContainer from './AppContainer';
 
 // --- Redux configuration
-import { Provider, } from 'react-redux';
-import { createStore, applyMiddleware, compose, } from 'redux';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import reduxThunk from 'redux-thunk';
 // ---Reducers
 import globalReducersState from '@Redux/globalReducers';
@@ -22,12 +22,12 @@ if (process.env.NODE_ENV === 'development') {
 const reduxStorage = createStore(
   globalReducersState,
   {},
-  composeEnhancers(applyMiddleware(reduxThunk,),),
+  composeEnhancers(applyMiddleware(reduxThunk)),
 );
 
 // --------------------------------- React integration ---------------------------------
-const rootHtmlElement = document.getElementById('root',);
-const root = createRoot(rootHtmlElement!,);
+const rootHtmlElement = document.getElementById('root');
+const root = createRoot(rootHtmlElement!);
 root.render(
   <Provider store={reduxStorage}>
     <AppContainer />
