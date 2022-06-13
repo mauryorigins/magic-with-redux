@@ -1,13 +1,12 @@
 // ---Dependencys
-import { ReactElement } from 'react';
+import { ReactElement } from "react";
 
 // ------------------------------------------ COMPONENT-----------------------------------------
 export default function Message(): ReactElement {
   return (
     <p>
-      Goodbye
-      &nbsp;
-      <span>World</span>
+      Goodbye &nbsp;
+      <span>World2</span>
     </p>
   );
 }

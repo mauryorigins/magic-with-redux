@@ -1,19 +1,26 @@
-const path = require('path'); // modulo path que viene nativo de node
-const webpack = require('webpack')
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require("path"); // modulo path que viene nativo de node
+const webpack = require("webpack");
+const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  mode: 'development',
-  devtool: 'cheap-module-source-map',
+  mode: "development",
+  devtool: "cheap-module-source-map",
   devServer: {
-    hot: true,
+    // new
+    client: {
+      overlay: true,
+      progress: true,
+      reconnect: true,
+    },
+    static: {
+      directory: path.resolve(__dirname, "../src"),
+    },
     port: 3000,
-    public: 'localhost:3000',
     open: true,
-    historyApiFallback: true, // fix cannot get on refresh
-    contentBase: path.resolve(__dirname, '../src'),
-    disableHostCheck: true // That solved it
+    liveReload: false,
+    allowedHosts: "all",
+    historyApiFallback: true,
   },
   module: {
     rules: [
@@ -21,34 +28,34 @@ module.exports = {
         test: /\.less$/,
         use: [
           {
-            loader: 'style-loader'
+            loader: "style-loader",
           },
           {
-            loader: 'css-loader'
-          }, 
+            loader: "css-loader",
+          },
           {
-            loader: 'less-loader',
+            loader: "less-loader",
             options: {
               lessOptions: {
-                javascriptEnabled: true
-              }
-            }
-          }
-        ]
+                javascriptEnabled: true,
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      }
-    ]
+        use: ["style-loader", "css-loader"],
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '../src/index.html')
+      template: path.resolve(__dirname, "../src/index.html"),
     }),
     new ReactRefreshWebpackPlugin(),
     new webpack.DefinePlugin({
-      'process.env.name': JSON.stringify('Vishwas'),
+      "process.env.name": JSON.stringify("Vishwas"),
     }),
   ],
-}
+};
