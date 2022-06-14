@@ -1,38 +1,47 @@
-// -------------------------------------------TYPES------------------------------------
-import {
-  UPDATE_PARAMS,
-  CHANGE_RESPONSIVE,
-  UPDATE_PATH,
-  UPDATE_LOADING,
-} from '@Redux/appInfo/types';
-import { Dispatch } from 'redux'
-import { ResponsiveData } from '@Redux/appInfo/customTypes';
+/* eslint-disable require-jsdoc */
+// ---CASES
+import { Cases } from '@Redux/appInfo/constants';
+// ---TYPES
+import { Dispatch } from 'redux';
+import { UpdateResponsive, UpdateString, UpdateBool } from '@Redux/appInfo/customTypes';
 
 // -------------------------------------------ACTIONS------------------------------------
-export const changeResponsiveFlag = (responsiveData: ResponsiveData) => (dispatch: Dispatch) : void => {
-  dispatch({
-    type: CHANGE_RESPONSIVE,
-    payload: responsiveData
-  });
-};
+export function reduxUpdateResponsive(data: UpdateResponsive['payload']) {
+  return (dispatch: Dispatch): void => {
+    const action: UpdateResponsive = {
+      type: Cases.CHANGE_RESPONSIVE,
+      payload: data,
+    };
+    dispatch(action);
+  };
+}
 
-export const updatePath = (newPath: string) => (dispatch: Dispatch) : void => {
-  dispatch({
-    type: UPDATE_PATH,
-    payload: newPath
-  });
-};
+export function reduxUpdatePath(data: UpdateString['payload']) {
+  return (dispatch: Dispatch): void => {
+    const action: UpdateString = {
+      type: Cases.UPDATE_PATH,
+      payload: data,
+    };
+    dispatch(action);
+  };
+}
 
-export const updateParams = (newParam: string) => (dispatch: Dispatch) : void => {
-  dispatch({
-    type: UPDATE_PARAMS,
-    payload: newParam
-  });
-};
+export function reduxUpdateParam(data: UpdateString['payload']) {
+  return (dispatch: Dispatch): void => {
+    const action: UpdateString = {
+      type: Cases.UPDATE_PARAMS,
+      payload: data,
+    };
+    dispatch(action);
+  };
+}
 
-export const updateLoading = (flag: boolean) => (dispatch: Dispatch) : void => {
-  dispatch({
-    type: UPDATE_LOADING,
-    payload: flag
-  });
-};
+export function reduxUpdateLoading(data: UpdateBool['payload']) {
+  return (dispatch: Dispatch): void => {
+    const action: UpdateBool = {
+      type: Cases.UPDATE_LOADING,
+      payload: data,
+    };
+    dispatch(action);
+  };
+}

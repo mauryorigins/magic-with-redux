@@ -1,5 +1,5 @@
 // ---Dependencys
-import { ReduxState } from '@Redux/globalReducers';
+import { FullReduxState } from '@Redux/globalReducers';
 import { Progress } from 'antd';
 import { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
@@ -10,10 +10,9 @@ import { useSelector } from 'react-redux';
  * @returns {}
  */
 export function Message(): ReactElement {
-  const { lessColors } = useSelector((s: ReduxState) => s.appInfoReducer);
+  const { lessColors } = useSelector((s: FullReduxState) => s.appInfoReducer);
   const appName = process?.env?.REACT_APP_APP_NAME;
-  const primary = lessColors?.['@colorPrimary'] || '#fff';
-  const secondary = lessColors?.['@colorSecondary'] || '#fff';
+  const { primary, secondary } = lessColors;
   return (
     <>
       <h3>{appName}</h3>
@@ -23,10 +22,10 @@ export function Message(): ReactElement {
       </p>
       <Progress
         strokeColor={{
-          from: primary,
-          to: secondary,
+          from: primary!,
+          to: secondary!,
         }}
-        percent={99.9}
+        percent={67}
         status="active"
       />
     </>

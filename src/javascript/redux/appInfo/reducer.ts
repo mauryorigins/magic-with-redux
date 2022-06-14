@@ -1,12 +1,7 @@
 /* eslint-disable require-jsdoc */
 // -------------------------------------------TYPES------------------------------------
-import {
-  UPDATE_PARAMS,
-  CHANGE_RESPONSIVE,
-  UPDATE_PATH,
-  UPDATE_LOADING,
-} from '@Redux/appInfo/types';
-import { Action, ReducerState, ResponsiveData } from '@Redux/appInfo/customTypes';
+import { Cases } from '@Redux/appInfo/constants';
+import { Action, ReducerState, Colors } from '@Redux/appInfo/customTypes';
 
 // -------------------------------------------STATE------------------------------------
 const INITIAL_STATE: ReducerState = {
@@ -15,36 +10,36 @@ const INITIAL_STATE: ReducerState = {
   isLoading: false,
   currentPath: '',
   currentParams: '',
-  lessColors: getColors(),
+  lessColors: getColors()!,
 };
 
 // ------------------------------------------REDUCER-----------------------------------
 export function appInfoReducer(state = INITIAL_STATE, action: Action): ReducerState {
   const { type, payload } = action;
   switch (type) {
-    case CHANGE_RESPONSIVE:
+    case Cases.CHANGE_RESPONSIVE:
       return {
         ...state,
-        isMovil: (payload as ResponsiveData).isMovil,
-        winSize: (payload as ResponsiveData).winSize,
+        isMovil: payload.isMovil,
+        winSize: payload.winSize,
       };
 
-    case UPDATE_PATH:
+    case Cases.UPDATE_PATH:
       return {
         ...state,
-        currentPath: <string>payload,
+        currentPath: payload,
       };
 
-    case UPDATE_PARAMS:
+    case Cases.UPDATE_PARAMS:
       return {
         ...state,
-        currentParams: <string>payload,
+        currentParams: payload,
       };
 
-    case UPDATE_LOADING:
+    case Cases.UPDATE_LOADING:
       return {
         ...state,
-        isLoading: <boolean>payload,
+        isLoading: payload,
       };
 
     default:
@@ -52,9 +47,17 @@ export function appInfoReducer(state = INITIAL_STATE, action: Action): ReducerSt
   }
 }
 
+// ---------------------------AUX METHODS
+
 function getColors() {
   try {
-    return JSON.parse(process?.env?.REACT_APP_LESS_COLORS as string);
+    let colors: Colors = JSON.parse(process?.env?.REACT_APP_LESS_COLORS as string);
+    colors = {
+      ...colors,
+      primary: colors?.['@colorSecondary'],
+      secondary: colors?.['@colorSecondary'],
+    };
+    return colors;
   } catch (error) {
     return undefined;
   }
