@@ -2,22 +2,16 @@
 /* eslint-disable react/jsx-fragments */
 // ---Dependencys
 import { ReactElement, Fragment, useEffect } from 'react';
-import {
-  Route, Switch, withRouter, RouteComponentProps
-} from 'react-router-dom';
+import { Route, Switch, withRouter, RouteComponentProps } from 'react-router-dom';
 // ---Redux
 import { useDispatch } from 'react-redux';
-import {
-  changeResponsiveFlag,
-  updatePath,
-  updateParams
-} from '@Redux/appInfo/actions';
+import { appInfoActions } from '@Redux/appInfo/actions';
 import { ResponsiveData } from '@Redux/appInfo/customTypes';
 // ---Others
-import isMovilDetector from 'AppConfig/isMovilDetector';
+import { isMovilDetector } from 'AppConfig/isMovilDetector';
 // ---Pages
-import HomePage from 'Pages/HomePage';
-import Error404Page from 'Pages/Error404Page';
+import { HomePage } from 'Pages/Home/HomePage';
+import { Error404Page } from 'Pages/Error404/Error404Page';
 
 /** Render components as routes of the app, is the root of the entire app also,
  * get usefull data as window size of the app, current route and retrive the data to redux  */
@@ -27,15 +21,20 @@ function Routes({ location }: RouteComponentProps): ReactElement {
   const responsiveData = isMovilDetector();
   // Redux Actions
   const dispatch = useDispatch();
-  const updateResponsiveData = (data: ResponsiveData) => dispatch(changeResponsiveFlag(data));
-  const updateCurrentPath = () => dispatch(updatePath(currentPath));
-  const updateCurrentParams = () => dispatch(updateParams(urlParams));
+  const updateResponsiveData = (data: ResponsiveData) =>
+    dispatch(appInfoActions.updateResponsive(data));
+  const updateCurrentPath = () => dispatch(appInfoActions.updatePath(currentPath));
+  const updateCurrentParams = () => dispatch(appInfoActions.updateParam(urlParams));
   useEffect(() => {
     updateResponsiveData(responsiveData);
   }, [responsiveData]);
 
-  useEffect(() => { updateCurrentPath(); }, [currentPath]);
-  useEffect(() => { updateCurrentParams(); }, [urlParams]);
+  useEffect(() => {
+    updateCurrentPath();
+  }, [currentPath]);
+  useEffect(() => {
+    updateCurrentParams();
+  }, [urlParams]);
   return (
     <Fragment>
       <Switch>
@@ -50,4 +49,4 @@ function Routes({ location }: RouteComponentProps): ReactElement {
   );
 }
 
-export default withRouter(Routes);
+export const WrappedRoutes = withRouter(Routes);

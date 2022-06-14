@@ -1,8 +1,8 @@
-// ---Dependencys
+// ---Dependency´s
 import { ReactElement } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 // ---Routes
-import Routes from './Routes';
+import { WrappedRoutes } from './Routes';
 // ---Redux Stuff
 import { reduxStorage } from '@Redux/createStorage';
 import { Provider } from 'react-redux';
@@ -15,7 +15,7 @@ export function AppContainer(): ReactElement {
   return (
     <Provider store={reduxStorage}>
       <BrowserRouter>
-        <Routes />
+        <WrappedRoutes />
       </BrowserRouter>
     </Provider>
   );

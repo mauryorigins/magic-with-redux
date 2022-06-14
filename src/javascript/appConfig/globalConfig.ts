@@ -5,8 +5,8 @@ export const ownerData = {
   title: {
     main: 'Shelly',
     sub: 'store',
-    shortAppName: 'Shelly'
+    shortAppName: 'Shelly',
   },
   phoneStr: '5555555555',
-  phoneMain: 5555555555
-}
+  phoneMain: 5555555555,
+};

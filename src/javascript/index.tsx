@@ -1,5 +1,4 @@
 // ---React Stuff
-import React from 'react';
 import { createRoot } from 'react-dom/client';
 // --- Root App
 import { AppContainer } from './AppContainer';

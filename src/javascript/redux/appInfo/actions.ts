@@ -6,7 +6,7 @@ import { Dispatch } from 'redux';
 import { UpdateResponsive, UpdateString, UpdateBool } from '@Redux/appInfo/customTypes';
 
 // -------------------------------------------ACTIONS------------------------------------
-export function reduxUpdateResponsive(data: UpdateResponsive['payload']) {
+function updateResponsive(data: UpdateResponsive['payload']) {
   return (dispatch: Dispatch): void => {
     const action: UpdateResponsive = {
       type: Cases.CHANGE_RESPONSIVE,
@@ -16,7 +16,7 @@ export function reduxUpdateResponsive(data: UpdateResponsive['payload']) {
   };
 }
 
-export function reduxUpdatePath(data: UpdateString['payload']) {
+function updatePath(data: UpdateString['payload']) {
   return (dispatch: Dispatch): void => {
     const action: UpdateString = {
       type: Cases.UPDATE_PATH,
@@ -26,7 +26,7 @@ export function reduxUpdatePath(data: UpdateString['payload']) {
   };
 }
 
-export function reduxUpdateParam(data: UpdateString['payload']) {
+function updateParam(data: UpdateString['payload']) {
   return (dispatch: Dispatch): void => {
     const action: UpdateString = {
       type: Cases.UPDATE_PARAMS,
@@ -36,7 +36,7 @@ export function reduxUpdateParam(data: UpdateString['payload']) {
   };
 }
 
-export function reduxUpdateLoading(data: UpdateBool['payload']) {
+function updateLoading(data: UpdateBool['payload']) {
   return (dispatch: Dispatch): void => {
     const action: UpdateBool = {
       type: Cases.UPDATE_LOADING,
@@ -45,3 +45,10 @@ export function reduxUpdateLoading(data: UpdateBool['payload']) {
     dispatch(action);
   };
 }
+
+export const appInfoActions = {
+  updateResponsive,
+  updatePath,
+  updateParam,
+  updateLoading,
+};
