@@ -52,9 +52,10 @@ export function appInfoReducer(state = INITIAL_STATE, action: Action): ReducerSt
 function getColors() {
   try {
     let colors: Colors = JSON.parse(process?.env?.REACT_APP_LESS_COLORS as string);
+
     colors = {
       ...colors,
-      primary: colors?.['@colorSecondary'],
+      primary: colors?.['@colorPrimary'],
       secondary: colors?.['@colorSecondary'],
     };
     return colors;

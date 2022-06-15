@@ -2,6 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import reduxThunk from 'redux-thunk';
 // ---Reducers
 import { FullReduxState, rootReducer } from '@Redux/globalReducers';
+import { ignoreProperties } from 'Utils/functions/objectMethods';
 
 /**
  * Convert object to string and store in localStorage
@@ -21,14 +22,18 @@ function saveToLocalStorage(state: FullReduxState) {
  * invalid output must be undefined
  * @returns
  */
-function loadFromLocalStorage() {
+function loadFromLocalStorage(ignoredStorages: string[]) {
   try {
     const serialisedState = localStorage.getItem('persistantState');
-    if (serialisedState === null) return undefined;
-    return JSON.parse(serialisedState);
+    if (serialisedState === null) {
+      return {};
+    }
+    const reduxFromLocalStorage = JSON.parse(serialisedState);
+    const finalStorage = ignoreProperties(reduxFromLocalStorage, ignoredStorages);
+    return finalStorage;
   } catch (e) {
     console.warn(e);
-    return undefined;
+    return {};
   }
 }
 
@@ -40,9 +45,11 @@ if (process.env.NODE_ENV === 'development') {
   composeEnhancers = compose;
 }
 
+const doNotRead = ['appInfoReducer'];
+
 const store = createStore(
   rootReducer,
-  loadFromLocalStorage(),
+  loadFromLocalStorage(doNotRead),
   composeEnhancers(applyMiddleware(reduxThunk)),
 );
 

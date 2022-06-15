@@ -12,7 +12,6 @@ import { useSelector } from 'react-redux';
 export function Tests(): ReactElement {
   const { lessColors } = useSelector((s: FullReduxState) => s.appInfoReducer);
   const appName = process?.env?.REACT_APP_APP_NAME;
-  const { primary, secondary } = lessColors;
   return (
     <>
       <h3>{appName}</h3>
@@ -22,8 +21,8 @@ export function Tests(): ReactElement {
       </p>
       <Progress
         strokeColor={{
-          from: primary!,
-          to: secondary!,
+          from: lessColors?.primary!,
+          to: lessColors?.secondary!,
         }}
         percent={67}
         status="active"
