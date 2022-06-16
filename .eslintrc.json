@@ -48,16 +48,16 @@
       "warn",
       {
         "require": {
-          "FunctionDeclaration": false,
+          "FunctionDeclaration": true,
           "MethodDefinition": false,
           "ClassDeclaration": false,
           "ArrowFunctionExpression": false,
-          "FunctionExpression": true
+          "FunctionExpression": false
         }
       }
     ],
     // Javascript
-    "react/function-component-definition": ["warn", { "namedComponents": "function-expression" }],
+    "react/function-component-definition": ["warn", { "namedComponents": "function-declaration" }],
     "global-require": "off",
     "no-plusplus": "off",
     "react/require-default-props": "off",
