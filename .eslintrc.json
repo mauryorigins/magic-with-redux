@@ -48,18 +48,20 @@
       "warn",
       {
         "require": {
-          "FunctionDeclaration": true,
+          "FunctionDeclaration": false,
           "MethodDefinition": false,
           "ClassDeclaration": false,
           "ArrowFunctionExpression": false,
-          "FunctionExpression": false
+          "FunctionExpression": true
         }
       }
     ],
     // Javascript
+    "react/function-component-definition": ["warn", { "namedComponents": "function-expression" }],
     "global-require": "off",
     "no-plusplus": "off",
     "react/require-default-props": "off",
+    "func-names": ["error", "never"],
     "no-unused-vars": "off",
     "no-use-before-define": "off",
     "import/no-unresolved": "off",

@@ -23,6 +23,7 @@ module.exports = {
     liveReload: true,
     allowedHosts: 'all',
     historyApiFallback: true,
+    watchFiles: [path.resolve(__dirname, '../src/css/colors.less')],
   },
   module: {
     rules: [
