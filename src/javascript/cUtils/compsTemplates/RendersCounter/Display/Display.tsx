@@ -17,9 +17,13 @@ export function Display({ id }: Props): ReactElement {
   // -----------------------MAIN METHODS
   const clearCount = function () {
     try {
-      localStorage.setItem(id, '0');
+      localStorage.setItem(`first${id}`, '0');
+      localStorage.setItem(`re${id}`, '0');
+      setRe(justReadRe('0'));
+      setFirst(justReadFirst('0'));
     } catch (error) {
-      console.error(error);
+      setRe(justReadRe('0'));
+      setFirst(justReadFirst('0'));
     }
   };
   const updateCounts = function () {

@@ -8,7 +8,7 @@ interface Props {
 }
 
 // -----------------------AUX METHODS
-export const justReadRe = function (id: string) {
+export const justReadRe = function (id: string): number {
   try {
     const getCount = localStorage.getItem(`re${id}`);
     const parsedNumber = Number(getCount);
@@ -17,7 +17,7 @@ export const justReadRe = function (id: string) {
     return 0;
   }
 };
-export const justReadFirst = function (id: string) {
+export const justReadFirst = function (id: string): number {
   try {
     const getCount = localStorage.getItem(`first${id}`);
     const parsedNumber = Number(getCount);
@@ -34,19 +34,24 @@ export function RendersCounter({ id, children }: Props): ReactElement {
   // -----------------------CONSTS, HOOKS, STATES
   const didMountRef = useRef(false);
   // -----------------------MAIN METHODS
-  const incrementCount = function () {
+  const incrementReCount = function () {
     let reStorageCount = justReadRe(id);
-    let firstStorageCount = justReadFirst(id);
     reStorageCount++;
+    localStorage.setItem(`first${id}`, reStorageCount.toString(10));
+  };
+  const incrementFirstCount = function () {
+    let firstStorageCount = justReadFirst(id);
     firstStorageCount++;
-    localStorage.setItem(id, reStorageCount.toString(10));
-    localStorage.setItem(id, firstStorageCount.toString(10));
+    localStorage.setItem(`first${id}`, firstStorageCount.toString(10));
   };
   // -----------------------USEEFFECT
   useEffect(() => {
     if (didMountRef.current) {
-      incrementCount();
-    } else didMountRef.current = true;
+      incrementReCount();
+    } else {
+      didMountRef.current = true;
+      incrementFirstCount();
+    }
   });
   // -----------------------RENDER
   return (
