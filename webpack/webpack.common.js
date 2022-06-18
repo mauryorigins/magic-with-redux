@@ -10,7 +10,6 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx', '.json'],
     alias: {
-      Cont: path.resolve(__dirname, '../src/javascript/containers'),
       Pages: path.resolve(__dirname, '../src/javascript/cPages'),
       GlobalProvider: path.resolve(__dirname, '../src/javascript/GlobalProvider'),
       CComps: path.resolve(__dirname, '../src/javascript/commonComps'),

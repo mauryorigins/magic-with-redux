@@ -3,7 +3,6 @@
     "baseUrl": "./src",
     "module": "ESNext",
     "paths": {
-      "Cont/*": ["./src/javascript/containers/*"],
       "Pages/*": ["./src/javascript/cPages/*"],
       "CComps/*": ["./src/javascript/commonComps/*"],
       "GlobalProvider/*": ["./src/javascript/GlobalProvider/*"],
