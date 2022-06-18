@@ -10,9 +10,9 @@ import { Cuerpo } from 'Pages/Error404/Error404Cont/Cuerpo/Cuerpo';
  */
 export function Error404Cont(): React.ReactElement {
   return (
-    <>
+    <div className="Error404Cont">
       <Titulo />
       <Cuerpo />
-    </>
+    </div>
   );
 }

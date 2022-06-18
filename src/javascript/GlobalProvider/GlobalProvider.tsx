@@ -1,9 +1,10 @@
 // --- Dependency´s
 import { ReactElement, ReactNode } from 'react';
+// ---Custom Hooks
 import { useAppListener } from 'GlobalProvider/useAppListener/useAppListener';
 // ---Components
-// ---Custom Hooks
-// import { useAppListen } from 'AppConfig/appListenHook/useAppListen';
+import { Footer } from 'GlobalProvider/Footer/Footer';
+import { Navbar } from 'GlobalProvider/Navbar/Navbar';
 
 // -----------------------PROPS
 interface Props {
@@ -22,9 +23,9 @@ export function GlobalProvider({ children }: Props): ReactElement {
   // -----------------------RENDER
   return (
     <>
-      <nav>Navbar</nav>
+      <Navbar />
       {children}
-      <footer>Footer</footer>
+      <Footer />
     </>
   );
 }
