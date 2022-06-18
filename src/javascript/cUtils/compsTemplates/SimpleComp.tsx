@@ -1,5 +1,6 @@
 // ---Dependencies
 import { ReactElement } from 'react';
+// ---UI Dependencies
 // ---Redux
 // ---Components
 // ---Custom Hooks

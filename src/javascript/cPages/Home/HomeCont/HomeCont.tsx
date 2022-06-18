@@ -1,19 +1,22 @@
 // ---Dependencys
 import { ReactElement } from 'react';
 // ---Components
-import { Tests } from 'Pages/Home/HomeCont/Tests/Tests';
-import { RendersCounter } from 'Utils/compsTemplates/RendersCounter/RendersCounter';
+import { HelloWorld } from 'Pages/Home/HomeCont/HelloWorld/HelloWorld';
+import { ProgressCustom } from 'Pages/Home/HomeCont/ProgressCustom/ProgressCustom';
 
 /**
- * HomeCont Component: where all the posts will be displayed
+ * HomeCont Component: Contenedor principal donde se construye todo el contenido de la pagina
  * @returns {ReactElement} ReactElement
  */
 export function HomeCont(): ReactElement {
-  // --- Const Hooks and States
-  // ---- Main Methods
+  // -----------------------CONSTS, HOOKS, STATES
+  // -----------------------MAIN METHODS
+  // -----------------------AUX METHODS
+  // -----------------------RENDER
   return (
-    <RendersCounter id="HomeCont">
-      <Tests />
-    </RendersCounter>
+    <div className="HomeCont">
+      <HelloWorld />
+      <ProgressCustom />
+    </div>
   );
 }
