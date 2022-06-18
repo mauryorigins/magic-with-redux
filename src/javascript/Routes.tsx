@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-fragments */
 // ---Dependencys
 import { ReactElement, Fragment } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 // ---Pages
 import { HomePage } from 'Pages/Home/HomePage';
 import { Error404Page } from 'Pages/Error404/Error404Page';
@@ -15,14 +15,10 @@ export function WrappedRoutes(): ReactElement {
   return (
     <Fragment>
       <GlobalProvider>
-        <Switch>
-          <Route path="/">
-            <HomePage />
-          </Route>
-          <Route path="*">
-            <Error404Page />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="*" element={<Error404Page />} />
+        </Routes>
       </GlobalProvider>
     </Fragment>
   );
