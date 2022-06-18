@@ -3,6 +3,7 @@ import { FullReduxState } from '@Redux/globalReducers';
 import { Progress } from 'antd';
 import { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
+import { generate } from 'Utils/functions/valueGenerators';
 
 /**
  * Componente Tests : En este componete se pueden hacer pruebas de cualquier tipo
@@ -19,6 +20,7 @@ export function Tests(): ReactElement {
         Goodbye &nbsp;
         <span>World2</span>
       </p>
+      <p>{`Unique: ${generate.uniqueString()}`}</p>
       <Progress
         strokeColor={{
           from: lessColors?.primary!,

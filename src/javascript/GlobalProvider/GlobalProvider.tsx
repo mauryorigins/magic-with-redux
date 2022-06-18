@@ -1,5 +1,6 @@
 // --- Dependency´s
 import { ReactElement, ReactNode } from 'react';
+import { useAppListener } from 'GlobalProvider/useAppListener/useAppListener';
 // ---Components
 // ---Custom Hooks
 // import { useAppListen } from 'AppConfig/appListenHook/useAppListen';
@@ -17,11 +18,13 @@ interface Props {
  */
 export function GlobalProvider({ children }: Props): ReactElement {
   // -----------------------CONSTS, HOOKS, STATES
-  // useAppListen();
+  useAppListener();
   // -----------------------RENDER
   return (
     <>
+      <nav>Navbar</nav>
       {children}
+      <footer>Footer</footer>
     </>
   );
 }
