@@ -3,7 +3,7 @@ import { FullReduxState } from '@Redux/globalReducers';
 import { useSelector } from 'react-redux';
 
 /**
- * Get an id or any number from the url and returns it as a number.
+ * Obtenga una identificación o cualquier número de la URL y lo devuelve como un número.
  * Example: http://example.com/route?23 retrives 23 as number
  * @returns {numbrer}
  */

@@ -14,7 +14,7 @@ function useEventListener<
 
 /**
  *
- * @param eventName Use EventListener with simplicity by React Hook. It takes as parameters a eventName, a call-back functions (handler) and optionally a reference element. You can see above two examples using useRef and window based event importing the "Example" component.
+ * @param eventName Use EventListener con la simplicidad de React Hook. Toma como parámetros un nombre de evento, una función de devolución de llamada (controlador) y, opcionalmente, un elemento de referencia. Puede ver los dos ejemplos anteriores usando useRef y un evento basado en ventana importando el componente "Ejemplo".
  * @param handler
  * @param element
  */
@@ -27,7 +27,7 @@ function useEventListener<
   handler: (event: WindowEventMap[KW] | HTMLElementEventMap[KH] | Event) => void,
   element?: RefObject<T>,
 ) {
-  // Create a ref that stores handler
+  // Crear una referencia que almacene el controlador
   const savedHandler = useRef(handler);
 
   useIsomorphicLayoutEffect(() => {
@@ -35,7 +35,7 @@ function useEventListener<
   }, [handler]);
 
   useEffect(() => {
-    // Define the listening target
+    // Definir el objetivo de escucha
     const targetElement: T | Window = element?.current || window;
     if (!(targetElement && targetElement.addEventListener)) {
       return;
@@ -46,7 +46,7 @@ function useEventListener<
 
     targetElement.addEventListener(eventName, eventListener);
 
-    // Remove event listener on cleanup
+    // Eliminar el event listener en la limpieza
     return () => {
       targetElement.removeEventListener(eventName, eventListener);
     };
@@ -56,11 +56,11 @@ function useEventListener<
 export default useEventListener;
 
 /**
- * React component example of using useEventListener.
+ * Ejemplo de componente React del uso de useEventListener.
  * @returns {ReactElement}
  */
 export function Example(): ReactElement {
-  // Define button ref
+  // Definir referencia de botón
 
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -72,11 +72,11 @@ export function Example(): ReactElement {
     console.log('button clicked!', event);
   };
 
-  // example with window based event
+  // ejemplo con evento basado en ventana
 
   useEventListener('scroll', onScroll);
 
-  // example with element based event
+  // ejemplo con evento basado en elementos
 
   useEventListener('click', onClick, buttonRef);
 

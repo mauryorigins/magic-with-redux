@@ -8,14 +8,14 @@ interface ReturnType {
   toggle: () => void;
 }
 /**
- * A simple abstraction to play with a boolean, have common operations and control the bollean state.
- * @param {boolean} boolean - defaultValue: Initial value of the boolean.
- * @returns {ReturnType} ReturnType - Object with the following properties:
- * - value - The current value of the boolean.
- * - setValue: - A function to change the value of the boolean by the param recived.
- * - setTrue: - A function to set the boolean to true.
- * - setFalse: - A function to set the boolean to false.
- * - toggle: - A function to toggle the boolean.
+ * Una simple abstracción para jugar con un booleano, tener operaciones comunes y controlar el estado del booleano.
+ * @param {boolean} boolean - defaultValue: Valor inicial del booleano.
+ * @returns {ReturnType} ReturnType - Objeto con las siguientes propiedades:
+ * - value - El valor actual del booleano.
+ * - setValue: - Una función para cambiar el valor del booleano por el parámetro recibido.
+ * - setTrue: - Una función para establecer el valor booleano en verdadero.
+ * - setFalse: - Una función para establecer el valor booleano en falso.
+ * - toggle: - Una función para alternar el booleano.
  */
 export function useBoolean(defaultValue?: boolean): ReturnType {
   const [value, setValue] = useState(!!defaultValue);

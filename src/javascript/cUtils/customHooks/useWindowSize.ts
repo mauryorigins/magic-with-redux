@@ -8,7 +8,7 @@ interface WindowSize {
 }
 
 /**
- * Easily retrieve window dimensions with this React Hook which also works onRezise.
+ * Recupere fácilmente las dimensiones de la ventana con este React Hook que también funciona en Rezise.
  * @returns {WindowSize}
  */
 export function useWindowSize(): WindowSize {

@@ -8,7 +8,7 @@ interface Props {
 
 /**
  * Display Component: Do something
- * @returns {ReactElement}
+ * @returns {ReactElement} ReactElement
  */
 export function Display({ id }: Props): ReactElement {
   // -----------------------CONSTS, HOOKS, STATES
@@ -30,7 +30,6 @@ export function Display({ id }: Props): ReactElement {
     setRe(justReadRe(id));
     setFirst(justReadFirst(id));
   };
-  // -----------------------USEEFFECT
   // -----------------------RENDER
   return (
     <div>

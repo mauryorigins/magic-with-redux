@@ -7,8 +7,8 @@ import { useSelector } from 'react-redux';
 import { FullReduxState } from '@Redux/globalReducers';
 
 /**
- * ProgressCustom Component: Check the colors in redux and customize the progress bar
- * @returns {ReactElement}
+ * ProgressCustom Component: Revisa los colores en redux y personaliza la barra de progreso
+ * @returns {ReactElement} ReactElement
  */
 export function ProgressCustom(): ReactElement {
   // -----------------------CONSTS, HOOKS, STATES

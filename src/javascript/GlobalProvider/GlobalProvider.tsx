@@ -11,9 +11,9 @@ interface Props {
   children: ReactNode;
 }
 /**
- * GlobalProvider Component: Component that renders globally in the app and
- * persist in all the pages. You can add new components here to render them globally for Ex:
- * Toolbars, Footers, Chat components, Carts, etc.
+ * GlobalProvider Component: Componente que se representa globalmente en la aplicación y
+ * persiste en todas las páginas. Puede agregar nuevos componentes aquí para representarlos
+ * globalmente para Ex: Barras de herramientas, pies de página, componentes de chat, carritos, etc.
  * @param {Props} - Props of the component
  * @return {ReactElement} ReactElement
  */
