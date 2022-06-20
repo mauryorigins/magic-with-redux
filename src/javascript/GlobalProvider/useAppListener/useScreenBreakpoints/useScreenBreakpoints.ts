@@ -9,7 +9,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { FullReduxState } from '@Redux/globalReducers';
 
 /**
- * Hook to update the screen Breakpoints in redux with the current window size using a ResponsiveData object with props "isMovil" and "winSize"
+ * Hook para actualizar los puntos de interrupción de la pantalla en redux con el tamaño de ventana actual usando
+ * un objeto ResponsiveData con accesorios "isMovil" y "winSize"
  */
 export function useScreenBreakpoints() {
   const dispatch = useDispatch();
@@ -17,7 +18,9 @@ export function useScreenBreakpoints() {
   const { width } = useWindowSize();
   useEffect(() => updateScreen(), [width]);
 
-  /** Calulate the breakpoints of the screen and returns a ResponsiveData object with props "isMovil" and "winSize"
+  /**
+   * Calcula los puntos de interrupción de la pantalla y devuelve un objeto ResponsiveData con propiedades
+   * "isMovil" y "winSize"
    * @returns {ResponsiveData}
    */
   function getScreen(): ResponsiveData {
@@ -35,7 +38,7 @@ export function useScreenBreakpoints() {
     if (caseXXL) return { isMovil: false, winSize: 'xxl' };
     return { isMovil: false, winSize: 'lg' };
   }
-  /** Update the screen Breakpoints in redux */
+  /** Actualiza la pantalla Breakpoints en redux */
   function updateScreen() {
     const newSize = getScreen();
     if (newSize.winSize !== winSize) {

@@ -6,7 +6,7 @@ import { appInfoActions } from '@Redux/appInfo/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { FullReduxState } from '@Redux/globalReducers';
 
-/** Hook to listen and catch the app current route and params */
+/** Hook para escuchar y capturar la ruta actual y los parámetros de la aplicación */
 export function useRouteListen() {
   const dispatch = useDispatch();
   const { currentParams } = useSelector((s: FullReduxState) => s.appInfoReducer);

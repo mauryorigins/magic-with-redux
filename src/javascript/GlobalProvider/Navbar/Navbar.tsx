@@ -3,7 +3,7 @@ import { ReactElement } from 'react';
 
 /**
  * Navbar Component: Ejemplo de navbar para la aplicación
- * @returns {ReactElement}
+ * @returns {ReactElement} ReactElement
  */
 export function Navbar(): ReactElement {
   // -----------------------RENDER
