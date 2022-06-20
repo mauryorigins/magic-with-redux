@@ -4,6 +4,7 @@
     "es2021": true
   },
   "parser": "@typescript-eslint/parser",
+  "plugins": ["react", "@typescript-eslint", "prettier"],
   "extends": ["plugin:react/recommended", "airbnb", "plugin:prettier/recommended"],
   "parserOptions": {
     "ecmaVersion": 2020, // Allows for the parsing of modern ECMAScript features
@@ -12,7 +13,6 @@
     },
     "sourceType": "module"
   },
-  "plugins": ["react", "@typescript-eslint", "prettier"],
   "settings": {
     "react": {
       "createClass": "createReactClass", // Regex for Component Factory to use,
@@ -34,7 +34,7 @@
     "module": "writable"
   },
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": "warn",
     // Style
     "object-curly-newline": "off",
     "@typescript-eslint/naming-convention": [
