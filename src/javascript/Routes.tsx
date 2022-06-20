@@ -9,8 +9,11 @@ import { Error404Page } from 'Pages/Error404/Error404Page';
 // ---Components
 import { GlobalProvider } from 'GlobalProvider/GlobalProvider';
 
-/** Render components as routes of the app, is the root of the entire app also,
- * get usefull data as window size of the app, current route and retrive the data to redux  */
+/**
+ * WrappedRoutes Component: Representar componentes como rutas de la aplicación, también es la raíz de toda la aplicación,
+ * Obtenga datos útiles como el tamaño de la ventana de la aplicación, la ruta actual y recupere los datos para redux
+ * @returns {ReactElement} ReactElement
+ */
 export function WrappedRoutes(): ReactElement {
   return (
     <Fragment>

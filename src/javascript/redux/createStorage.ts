@@ -18,8 +18,8 @@ function saveToLocalStorage(state: FullReduxState) {
 }
 
 /**
- * Load string from localStarage and convert into an Object
- * invalid output must be undefined
+ * Carga un string del localStarage y lo convierte a un Object
+ * la salida inválida debe ser indefinida
  * @returns
  */
 function loadFromLocalStorage(ignoredStorages: string[]) {
