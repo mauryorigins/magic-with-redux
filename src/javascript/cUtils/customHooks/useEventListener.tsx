@@ -41,7 +41,7 @@ function useEventListener<
       return;
     }
 
-    // Create event listener that calls handler function stored in ref
+    // Cree un detector de eventos que llame a la función del controlador almacenada en ref
     const eventListener: typeof handler = (event) => savedHandler.current(event);
 
     targetElement.addEventListener(eventName, eventListener);

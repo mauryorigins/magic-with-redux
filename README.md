@@ -1,17 +1,9 @@
-# template-react-webpack5
-template ready to work and deploy with a javascript proyect configurated with webpack using wpck5-react-typescript
-
-Issues:
--Eslint rules must be updated and re configurated
-
-Upgrades: the production server open the browser, fixed some warnings, new script "npm run prod" builds all the dist diles and run de producrion server, eslint adjusted.
+# template-client-react-app-webpack5
 
 - Repositorio: [client-react-app](https://bitbucket.org/steve-barquet/client-react-app/src/master/)
 
 ### Architecture and data flow
--
--
--
+Plantilla lista para trabajar y desplegar con un proyecto javascript configurado con webpack usando wpck5-react-typescript: [Draw io diagram](https://drive.google.com/file/d/1OV07H-aETQs1GfsN-ETbOQ4il0z41abx/view?usp=sharing)
 
 ### Tools and technologies used
 
@@ -45,7 +37,49 @@ $ npm i
 $ npm run dev
 ```
 
-### Recomendations to review
--
--
--
+### Requirements (production in docker)
+
+- Docker 19.x o superior
+- Graphql server corriendo y apuntando al respectivo endpoint en `src/javascript/appConfig/globalConfig.ts` en environment.backend (en éste caso es a http://165.232.135.235:4000/graphql)
+
+# Run prod in docker
+
+1. Compila la version de produccion con:
+
+```
+$ npm run build
+```
+
+2. Desde la raiz de éste repositorio construye la imagen de docker con:
+
+```
+$ docker build -t graphql_front_image .
+```
+
+3. Desde la raiz de éste repositorio corre la imagen de docker con:
+
+```
+$ docker run --name graphql-front-container -p 3000:3000 -d --restart unless-stopped graphql_front_image
+```
+
+4. Verifica que el contenedor este arriba con:
+
+```
+$ docker container logs graphql-front-container
+```
+
+# Update prod in docker
+
+1. Borra el contenedor actual con:
+
+```
+$ docker container rm -f graphql-front-container
+```
+
+2. Actualiza el repositorio y asegurate de tener los ultimos cambios con:
+
+```
+$ git pull
+```
+
+3. Repite todos los pasos de **Run prod in docker** para actualizar
