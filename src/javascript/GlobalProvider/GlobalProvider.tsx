@@ -12,8 +12,8 @@ interface Props {
 }
 /**
  * GlobalProvider Component: Componente que se representa globalmente en la aplicación y
- * persiste en todas las páginas. Puede agregar nuevos componentes aquí para representarlos
- * globalmente para Ex: Barras de herramientas, pies de página, componentes de chat, carritos, etc.
+ * persiste en todas las páginas. Puede agregar nuevos componentes aquí para renderizarlos
+ * globalmente. Ejemlo: Barras de herramientas, pies de página, componentes de chat, carritos, etc.
  * @param {Props} - Props of the component
  * @return {ReactElement} ReactElement
  */
