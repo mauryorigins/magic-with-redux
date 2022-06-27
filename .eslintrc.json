@@ -36,6 +36,7 @@
   "rules": {
     "prettier/prettier": "warn",
     // Style
+    "camelcase": "off",
     "object-curly-newline": "off",
     "@typescript-eslint/naming-convention": [
       "warn",
