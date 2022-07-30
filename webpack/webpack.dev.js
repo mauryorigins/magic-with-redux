@@ -2,7 +2,9 @@ const path = require('path'); // modulo path que viene nativo de node
 const webpack = require('webpack');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { getEnv, envs } = require('./envsControl');
+// ---Env variables
+const { devEnvs } = require('../env/dev');
+const { envsParser } = require('../env/configs/envsParser');
 
 module.exports = {
   mode: 'development',
@@ -18,7 +20,7 @@ module.exports = {
     static: {
       directory: path.resolve(__dirname, '../src'),
     },
-    port: getEnv(envs.names.PORT) || 3000,
+    port: devEnvs.REACT_APP_PORT || 3000,
     open: true,
     liveReload: true,
     allowedHosts: 'all',
@@ -57,9 +59,6 @@ module.exports = {
       template: path.resolve(__dirname, '../src/index.html'),
     }),
     new ReactRefreshWebpackPlugin(),
-    new webpack.DefinePlugin({
-      [`process.env.${envs.names.APP_NAME}`]: JSON.stringify(envs.values.dev.APP_NAME),
-      [`process.env.${envs.names.DEBUG}`]: JSON.stringify(envs.values.dev.DEBUG),
-    }),
+    new webpack.DefinePlugin(envsParser(devEnvs)),
   ],
 };

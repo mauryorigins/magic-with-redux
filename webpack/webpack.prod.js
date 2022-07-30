@@ -2,7 +2,9 @@ const path = require('path'); // modulo path que viene nativo de node
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // Genera un nuevo html con configuraciones especificas
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const { envs } = require('./envsControl');
+// ---Env variables
+const { prodEnvs } = require('../env/prod');
+const { envsParser } = require('../env/configs/envsParser');
 
 module.exports = {
   mode: 'production',
@@ -49,9 +51,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../src/html/index.html'),
     }),
-    new webpack.DefinePlugin({
-      [`process.env.${envs.names.APP_NAME}`]: JSON.stringify(envs.values.prod.APP_NAME),
-    }),
+    new webpack.DefinePlugin(envsParser(prodEnvs)),
     new webpack.DllReferencePlugin({
       manifest: require('./modules-manifest.json'),
     }),
