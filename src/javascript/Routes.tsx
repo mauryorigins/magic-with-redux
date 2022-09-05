@@ -6,6 +6,8 @@ import { Route, Routes } from 'react-router-dom';
 // ---Pages
 import { HomePage } from 'Pages/Home/HomePage';
 import { Error404Page } from 'Pages/Error404/Error404Page';
+import { CardStoragePage } from 'Pages/CardStorage/CardStoragePage';
+import { ShoppingListPage } from 'Pages/ShoppingList/ShoppingListPage';
 // ---Components
 import { GlobalProvider } from 'GlobalProvider/GlobalProvider';
 
@@ -21,6 +23,8 @@ export function WrappedRoutes(): ReactElement {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="*" element={<Error404Page />} />
+          <Route path="/cards" element={<CardStoragePage />} />
+          <Route path="/goToCar" element={<ShoppingListPage />} />
         </Routes>
       </GlobalProvider>
     </Fragment>
